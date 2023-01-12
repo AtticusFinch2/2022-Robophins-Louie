@@ -15,6 +15,9 @@ import java.util.ArrayList;
 public class OpenCV2 extends OpMode {
     static final int STREAM_WIDTH = 1920; // modify for your camera
     static final int STREAM_HEIGHT = 1080; // modify for your camera
+    // yo louie this ends up being cchanged to YUV format by OpenCvWebcam
+    // which limits to somewhere around 5fps for 1080p
+    // consider lowering to 480p to give us 30fps
     OpenCvWebcam webcam;
     SamplePipeline pipeline;
     @Override
@@ -25,6 +28,9 @@ public class OpenCV2 extends OpMode {
         webcam = OpenCvCameraFactory.getInstance().createWebcam(webcamName, cameraMonitorViewId);
         pipeline = new SamplePipeline();
         webcam.setPipeline(pipeline);
+
+        webcam.setMillisecondsPermissionTimeout(5000); // Timeout for obtaining permission is configurable. Set before opening.
+
         webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
         {
             @Override
@@ -39,6 +45,7 @@ public class OpenCV2 extends OpMode {
                 telemetry.update();
             }
         });
+
 
     }
 

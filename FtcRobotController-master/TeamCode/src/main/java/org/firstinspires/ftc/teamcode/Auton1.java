@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -15,10 +16,10 @@ import org.opencv.core.Mat;
 public class Auton1 extends LinearOpMode {
     // Declare our motors
     // Make sure your ID's match your configuration
-    DcMotor motorFrontLeft, motorBackLeft, motorFrontRight, motorBackRight, rightIntake, leftIntake, extender;
-    CRServo spinner;
-    Servo rightIntakeSlapper, leftIntakeSlapper, rotator, releaser;
-    double pwr = 0.2;
+    DcMotor BLeft, BRight, FLeft, FRight, Slider;
+    //CRServo spinner;
+    Servo Take1, Take2;
+    //double pwr = 0.2;
     FindYellowTarget vision = new FindYellowTarget();
 
     @Override
